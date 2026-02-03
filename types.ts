@@ -5,20 +5,23 @@ export interface User {
   id: string;
   name: string;
   email: string;
-  password?: string; // Secret password for login
+  password?: string;
   role: Role;
   coins: number;
   avatar: string;
   badges: string[];
 }
 
-export interface Transaction {
+export interface HomeworkSubmission {
   id: string;
-  userId: string;
-  amount: number;
-  reason: string;
-  date: string;
-  type: 'EARN' | 'SPEND';
+  studentId: string;
+  studentName: string;
+  taskId: string;
+  taskTitle: string;
+  link: string;
+  image?: string;
+  status: 'PENDING' | 'APPROVED' | 'REJECTED';
+  submittedAt: number;
 }
 
 export interface Reward {

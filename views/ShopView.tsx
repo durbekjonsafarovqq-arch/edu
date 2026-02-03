@@ -17,60 +17,64 @@ const ShopView: React.FC<Props> = ({ user, rewards, updateCoins }) => {
       setPurchased(reward.id);
       setTimeout(() => setPurchased(null), 3000);
     } else {
-      alert("⚠️ Tangalar yetarli emas! Ko'proq vazifa bajaring va tanga yig'ing.");
+      alert("⚠️ Tangalar yetarli emas!");
     }
   };
 
   const categories = [
     { id: 'TECH', name: 'IT Gadjetlar', icon: '💻' },
-    { id: 'EDU', name: 'O\'quv Imtiyozlari', icon: '📚' }
+    { id: 'EDU', name: 'Bonuslar', icon: '📚' }
   ];
 
   return (
-    <div className="max-w-6xl mx-auto animate-in fade-in duration-700">
-      <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-8">
+    <div className="max-w-4xl mx-auto animate-in fade-in duration-300">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-5 gap-2">
         <div>
-          <h2 className="text-5xl font-black text-slate-800 mb-3 tracking-tighter">EduShop 🛒</h2>
-          <p className="text-slate-400 font-bold text-lg">Bilimni haqiqiy texnologiyalarga almashtiring</p>
+          <h2 className="text-xl font-black text-slate-800 tracking-tighter">EduShop 🛒</h2>
+          <p className="text-slate-400 font-bold text-[10px] uppercase tracking-wider">Bilimni texnologiyalarga almashtir</p>
         </div>
-        <div className="bg-gradient-to-tr from-amber-400 to-amber-600 px-12 py-6 rounded-[32px] text-white flex items-center gap-6 shadow-2xl shadow-amber-200 border-b-4 border-amber-700 active:translate-y-1 transition-all">
-           <span className="text-5xl animate-bounce">🪙</span>
+        <div className="bg-amber-500 px-4 py-2 rounded-lg text-white flex items-center gap-2 shadow-lg shadow-amber-50 border-b-2 border-amber-600 active:translate-y-0.5 transition-all">
+           <span className="text-lg">🪙</span>
            <div>
-             <p className="text-[10px] font-black text-amber-100 uppercase tracking-[4px] leading-none mb-2">Balans</p>
-             <p className="text-4xl font-black leading-none">{user.coins}</p>
+             <p className="text-[6px] font-black text-amber-100 uppercase tracking-widest leading-none mb-0.5">Balans</p>
+             <p className="text-sm font-black leading-none">{user.coins}</p>
            </div>
         </div>
       </div>
 
       {categories.map(cat => (
-        <div key={cat.id} className="mb-20">
-          <div className="flex items-center gap-4 mb-10">
-            <span className="text-3xl">{cat.icon}</span>
-            <h3 className="text-2xl font-black text-slate-800 uppercase tracking-widest">{cat.name}</h3>
-            <div className="flex-1 h-px bg-slate-200"></div>
+        <div key={cat.id} className="mb-6">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="text-base">{cat.icon}</span>
+            <h3 className="text-[9px] font-black text-slate-800 uppercase tracking-widest">{cat.name}</h3>
+            <div className="flex-1 h-px bg-slate-100"></div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-3">
             {rewards.filter(r => r.category === cat.id).map(r => (
-              <div key={r.id} className="bg-white p-10 rounded-[48px] shadow-sm border border-slate-100 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.1)] transition-all flex flex-col items-center text-center relative group">
-                <div className="w-28 h-28 bg-slate-50 rounded-[40px] flex items-center justify-center text-6xl mb-8 group-hover:scale-110 transition-transform group-hover:rotate-6 shadow-inner">
-                  {r.icon}
+              <div key={r.id} className="bg-white rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-all flex flex-col items-center p-2.5 group relative overflow-hidden">
+                <div className="w-full aspect-square bg-slate-50 rounded-lg mb-2 overflow-hidden relative border border-slate-50">
+                  <img 
+                    src={r.icon} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
+                    alt={r.title}
+                    onError={(e) => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1589149098258-3e9102ca93d3?q=80&w=200&auto=format&fit=crop'; }}
+                  />
                 </div>
-                <h3 className="text-xl font-black text-slate-800 mb-3">{r.title}</h3>
-                <p className="text-sm font-medium text-slate-400 mb-10 flex-1 leading-relaxed">{r.description}</p>
+                <h3 className="text-[10px] font-black text-slate-800 mb-0.5 text-center truncate w-full">{r.title}</h3>
+                <p className="text-[8px] font-medium text-slate-400 mb-2 text-center line-clamp-1 leading-tight">{r.description}</p>
                 <button 
                   onClick={() => handleBuy(r)}
-                  className={`w-full py-5 rounded-[24px] font-black uppercase tracking-[2px] text-xs transition-all ${
+                  className={`w-full py-1.5 rounded-lg font-black uppercase tracking-widest text-[7px] transition-all ${
                     purchased === r.id 
-                    ? 'bg-emerald-500 text-white shadow-emerald-200 shadow-xl' 
-                    : 'bg-blue-600 text-white shadow-xl shadow-blue-100 hover:bg-blue-700 hover:shadow-blue-200 active:scale-95'
+                    ? 'bg-emerald-500 text-white' 
+                    : 'bg-blue-600 text-white shadow-md hover:bg-blue-700 active:scale-95'
                   }`}
                 >
-                  {purchased === r.id ? 'Sotib olindi! ✅' : `Olish: ${r.cost} Tanga`}
+                  {purchased === r.id ? 'OK' : `${r.cost} 🪙`}
                 </button>
-                {purchased === r.id && <div className="absolute inset-0 bg-white/80 backdrop-blur-md rounded-[48px] flex flex-col items-center justify-center animate-in fade-in zoom-in">
-                  <span className="text-6xl mb-4 animate-bounce">🎁</span>
-                  <p className="font-black text-emerald-600 uppercase tracking-widest">Tabriklaymiz!</p>
+                {purchased === r.id && <div className="absolute inset-0 bg-white/95 backdrop-blur-sm rounded-xl flex flex-col items-center justify-center animate-in fade-in duration-300">
+                  <p className="font-black text-[8px] text-emerald-600 uppercase tracking-widest">Sotib olindi!</p>
                 </div>}
               </div>
             ))}

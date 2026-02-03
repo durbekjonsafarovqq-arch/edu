@@ -21,13 +21,62 @@ export const ADMIN_USER: User = {
 };
 
 export const REWARDS: Reward[] = [
-  { id: 'r1', title: '5 baho bonus', description: 'Darsdagi faollik uchun qo`shimcha baho', cost: 100, icon: '⭐', category: 'EDU' },
-  { id: 'r2', title: 'Uyga vazifadan ozod', description: 'Bitta ixtiyoriy uyga vazifani topshirmaslik huquqi', cost: 500, icon: '🏠', category: 'EDU' },
-  { id: 'r3', title: 'Sticker Pack', description: 'Noutbuk uchun maxsus IT stikerlar to`plami', cost: 50, icon: '🎨', category: 'TECH' },
-  { id: 'r5', title: 'RGB Gaming Mouse', description: 'Dasturlashda tezlik va qulaylik uchun', cost: 1200, icon: '🖱️', category: 'TECH' },
-  { id: 'r6', title: 'IT Headphones', description: 'Deep Work uchun shovqin qaytaruvchi quloqchin', cost: 2500, icon: '🎧', category: 'TECH' },
-  { id: 'r7', title: 'Mechanical Keyboard', description: 'Kod yozishda o`zgacha zavq beruvchi klaviatura', cost: 4000, icon: '⌨️', category: 'TECH' },
-  { id: 'r8', title: 'MacBook Air M3', description: 'Eng kuchli o`quvchilar uchun maxsus mukofot', cost: 50000, icon: '💻', category: 'TECH' },
+  { 
+    id: 'r1', 
+    title: '5 baho bonus', 
+    description: 'Darsdagi faollik uchun sertifikat', 
+    cost: 100, 
+    icon: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=300&auto=format&fit=crop', 
+    category: 'EDU' 
+  },
+  { 
+    id: 'r2', 
+    title: 'Vazifadan ozod', 
+    description: 'Bitta vazifani topshirmaslik pass-kartasi', 
+    cost: 500, 
+    icon: 'https://images.unsplash.com/photo-1517842645767-c639042777db?q=80&w=300&auto=format&fit=crop', 
+    category: 'EDU' 
+  },
+  { 
+    id: 'r3', 
+    title: 'IT Sticker Pack', 
+    description: 'Noutbuk uchun Developer stikerlari', 
+    cost: 50, 
+    icon: 'https://images.unsplash.com/photo-1589149098258-3e9102ca93d3?q=80&w=300&auto=format&fit=crop', 
+    category: 'TECH' 
+  },
+  { 
+    id: 'r5', 
+    title: 'Gaming Mouse', 
+    description: 'RGB professional sichqoncha', 
+    cost: 1200, 
+    icon: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?q=80&w=300&auto=format&fit=crop', 
+    category: 'TECH' 
+  },
+  { 
+    id: 'r6', 
+    title: 'IT Headphones', 
+    description: 'Shovqin qaytaruvchi quloqchin', 
+    cost: 2500, 
+    icon: 'https://images.unsplash.com/photo-1484704849700-f032a568e944?q=80&w=300&auto=format&fit=crop', 
+    category: 'TECH' 
+  },
+  { 
+    id: 'r7', 
+    title: 'Mechanical Keyboard', 
+    description: 'RGB mexanik klaviatura', 
+    cost: 4000, 
+    icon: 'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?q=80&w=300&auto=format&fit=crop', 
+    category: 'TECH' 
+  },
+  { 
+    id: 'r8', 
+    title: 'MacBook Air M3', 
+    description: 'Professional o`quvchilar uchun super mukofot', 
+    cost: 50000, 
+    icon: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=300&auto=format&fit=crop', 
+    category: 'TECH' 
+  },
 ];
 
 export const TASKS: Task[] = [
