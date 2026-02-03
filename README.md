@@ -19,6 +19,3 @@ View your app in AI Studio: https://ai.studio/apps/drive/1_tfy2fRyToG8twm6Td01tF
 3. Run the app:
    `npm run dev`
 # qwert
-# qwert
-# qwert
-# qwert
